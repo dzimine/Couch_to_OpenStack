@@ -4,7 +4,7 @@
 #
 
 # 1. On client (Vagrant host): create keypair and register private key for ssh
-ssh-keygen -t rsa -N "libvirt access" -f my.key -f id_rsa_libvirt
+ssh-keygen -t rsa -N "libvirt access" -P "" -f id_rsa_libvirt
 cp id_rsa_libvirt ~/.ssh/
 cp id_rsa_libvirt.pub ~/.ssh/ #one day you'll want to delete it and need pub for this
 # May be needed to fix Fix "Could not open a connection to your authentication agent."
