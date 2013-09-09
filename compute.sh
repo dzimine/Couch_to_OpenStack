@@ -1,7 +1,7 @@
 . /vagrant/common.sh
 
 # Deploy public keys (for script ssh access)
-cat id_rsa_libvirt.pub >>~/.ssh/authorized_keys
+sudo -u vagrant cat /vagrant/id_rsa_libvirt.pub >>home/vagrant/.ssh/authorized_keys
 
 MY_IP=$(ifconfig eth1 | awk '/inet addr/ {split ($2,A,":"); print A[2]}')
 
@@ -115,6 +115,8 @@ sql_connection=mysql://nova:openstack@${MYSQL_HOST}/nova
 
 # Messaging
 rabbit_host=${MYSQL_HOST}
+# DZ: enable notifiactions on RabbitMQ
+notification_driver=nova.openstack.common.notifier.rabbit_notifier
 
 # EC2 API Flags
 ec2_host=${MYSQL_HOST}
