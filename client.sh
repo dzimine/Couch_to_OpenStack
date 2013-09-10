@@ -13,3 +13,12 @@ sudo sed -i "s/^OPENSTACK_HOST.*/OPENSTACK_HOST = \"${CONTROLLER_HOST}\"/g" /etc
 
 # TODO: turn off memcached
 # sed -e '//,+4 s/^/#/' 
+
+# Create a netork and a few vm instances
+quantum net-create clinet
+quantum subnet-create clinet 192.167.0.0/24
+NET_ID=$(quantum net-list | awk '/\ test\ /{print $2}')
+nova boot --image 'Cirros 0.3' --flavor 1 --nic net-id=$NET_ID who
+nova boot --image 'Cirros 0.3' --flavor 1 --nic net-id=$NET_ID lets
+nova boot --image 'Cirros 0.3' --flavor 1 --nic net-id=$NET_ID the_dogs
+nova boot --image 'Cirros 0.3' --flavor 1 --nic net-id=$NET_ID out
