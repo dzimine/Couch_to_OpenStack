@@ -1,7 +1,7 @@
 . /vagrant/common.sh
 
 # Deploy public keys (for script ssh access)
-sudo -u vagrant cat /vagrant/id_rsa_libvirt.pub >>home/vagrant/.ssh/authorized_keys
+sudo -u vagrant cat /vagrant/id_rsa_libvirt.pub >>/home/vagrant/.ssh/authorized_keys
 
 MY_IP=$(ifconfig eth1 | awk '/inet addr/ {split ($2,A,":"); print A[2]}')
 
