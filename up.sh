@@ -10,5 +10,4 @@ ssh-add ~/.ssh/id_rsa_libvirt
 source timer.sh 
 t=$(timer)
 vagrant up
-read -p 'Enter when ready...' p
 printf 'Elapsed time: %s\n' $(timer $t)
