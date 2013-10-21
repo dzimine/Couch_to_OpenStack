@@ -319,6 +319,10 @@ fi
 glance image-create --name='Ubuntu 12.04 x86_64 Server' --disk-format=qcow2 --container-format=bare --public < precise-server-cloudimg-amd64-disk1.img
 glance image-create --name='Cirros 0.3' --disk-format=qcow2 --container-format=bare --public < cirros-0.3.0-x86_64-disk.img
 
+# Few more fake images: same Cirros 03, just different names...
+glance image-create --name='LAMP on Cirros' --disk-format=qcow2 --container-format=bare --public < cirros-0.3.0-x86_64-disk.img
+glance image-create --name='Unreal 7.1' --disk-format=qcow2 --container-format=bare --public < cirros-0.3.0-x86_64-disk.img
+
 ###############################
 # Quantum Install
 ###############################

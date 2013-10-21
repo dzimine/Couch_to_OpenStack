@@ -18,10 +18,15 @@ sudo sed -i "s/^OPENSTACK_HOST.*/OPENSTACK_HOST = \"${CONTROLLER_HOST}\"/g" /etc
 . /vagrant/.stackrc
 NET_NAME=thenet
 NET_ID=$(quantum net-create $NET_NAME | awk '/\ id \ /{print $4}')
-echo Created network $NET_NAME $NET_ID
 quantum subnet-create $NET_NAME 192.169.0.0/24
-echo nova boot --image 'Cirros 0.3' --flavor 1 --nic net-id=$NET_ID  who
+
+#Create smaller flavors
+# nova flavor-create m1.nano `uuidgen` 128 0 1
+nova flavor-create m1.micro 101 128 0 1
+nova flavor-create m1.nano 102 64 0 1
+
 nova boot --image 'Cirros 0.3' --flavor 1 --nic net-id=$NET_ID  who
 nova boot --image 'Cirros 0.3' --flavor 1 --nic net-id=$NET_ID  lets
-nova boot --image 'Cirros 0.3' --flavor 1 --nic net-id=$NET_ID  the_dogs
-nova boot --image 'Cirros 0.3' --flavor 1 --nic net-id=$NET_ID  out
+nova boot --image 'Unreal 7.1' --flavor 102 --nic net-id=$NET_ID  the_dogs
+nova boot --image 'LAMP on Cirros' --flavor 102 --nic net-id=$NET_ID  out
+

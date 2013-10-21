@@ -4,6 +4,7 @@
 ssh-keygen -t rsa -N "libvirt access" -P "" -f id_rsa_libvirt
 cp id_rsa_libvirt ~/.ssh/
 cp id_rsa_libvirt.pub ~/.ssh/
+# eval $(ssh-agent)
 ssh-add ~/.ssh/id_rsa_libvirt
 
 # Trigger vagrant (time it)
