@@ -10,4 +10,8 @@ MY_IP=$(ifconfig eth1 | awk '/inet addr/ {split ($2,A,":"); print A[2]}')
 # For setting up horizon, we want vagrant, not root
 sudo -u vagrant /vagrant/client/setup-horizon.sh
 
-
+# Configure ssh access to compute nodes
+sudo -u vagrant cp /vagrant/id_rsa_libvirt /home/vagrant/.ssh/
+sudo -u vagrant cp /vagrant/id_rsa_libvirt.pub /home/vagrant/.ssh/
+sudo -u vagrant eval `ssh-agent -s`
+sudo -u vagrant ssh-add /home/vagrant/.ssh/id_rsa_libvirt

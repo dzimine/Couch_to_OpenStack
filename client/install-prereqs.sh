@@ -1,4 +1,4 @@
-# Pre-requirements for Debian/Ubuntu
+# Osh pre-requirements for Debian/Ubuntu
 # Tested on Ubuntu 12.04
 
 # Node JS and NPM
@@ -15,8 +15,8 @@ npm --version
 
 
 # Java
-sudo apt-get install openjdk-7-jre
-
+sudo apt-get -y install openjdk-7-jre
+java -version
 ##  Note(DZ): oracle java install was reporing failing on ubuntu
 ## 
 # sudo apt-get install -y python-software-properties python g++ make
@@ -28,7 +28,7 @@ sudo apt-get install openjdk-7-jre
 # echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
 # sudo apt-get install -y oracle-java7-installer
 # # Check
-java -version
+# java -version
 #> java version "1.7.0_40"
 
 ### Install libvirt, libxml mysql client, curl, python, git

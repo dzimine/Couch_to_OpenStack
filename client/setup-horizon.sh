@@ -5,10 +5,10 @@
 
 ############################################
 # Install Horizon from sources
-source /vagrant/.controller
+. /vagrant/.controller
+. /vagrant/client/params.sh
 
-TOP_DIR=/opt/stack
-HORIZON_DIR=$TOP_DIR/horizon
+
 sudo mkdir -p $TOP_DIR
 sudo chown $USER $TOP_DIR
 
@@ -33,6 +33,7 @@ APACHE_USER=${APACHE_USER:-$USER}
 APACHE_GROUP=${APACHE_GROUP:-$(id -gn $APACHE_USER)}
 DEST=not_used
 FILES=/vagrant/client
+ST2_HORIZON=$TOP_DIR/stackstorm/horizon-plugins
 
 mkdir -p $HORIZON_DIR/.blackhole
 
