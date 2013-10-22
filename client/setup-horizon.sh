@@ -5,6 +5,7 @@
 
 ############################################
 # Install Horizon from sources
+source /vagrant/.controller
 
 TOP_DIR=/opt/stack
 HORIZON_DIR=$TOP_DIR/horizon
