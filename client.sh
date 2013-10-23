@@ -13,5 +13,7 @@ sudo -u vagrant /vagrant/client/setup-horizon.sh
 # Configure ssh access to compute nodes
 sudo -u vagrant cp /vagrant/id_rsa_libvirt /home/vagrant/.ssh/
 sudo -u vagrant cp /vagrant/id_rsa_libvirt.pub /home/vagrant/.ssh/
-sudo -u vagrant eval `ssh-agent -s`
-sudo -u vagrant ssh-add /home/vagrant/.ssh/id_rsa_libvirt
+sudo -u vagrant eval `ssh-agent -s` && ssh-add /home/vagrant/.ssh/id_rsa_libvirt
+# Test:
+# ssh vagrant@172.16.80.211 uname 
+# virsh -c  qemu+ssh://vagrant@172.16.80.211/system?socket=/var/run/libvirt/libvirt-sock list
