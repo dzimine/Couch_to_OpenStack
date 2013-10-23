@@ -58,7 +58,7 @@ grep -q -e customization_module $local_settings_file || sed -i "s/^HORIZON_CONFI
 # https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIDaemonProcess
 # The option that doesn't work: 
 # sudo sed -i "s#\#WSGIPythonPath.*#WSGIPythonPath ${ST2_HOME}/horizon-plugins#g" /etc/apache2/conf.d/horizon.conf
-sudo sed -i "s#python-path=.*#python-path=${ST2_HOME}/horizon-plugins#"
+sudo sed -i "s#python-path=.*#python-path=${ST2_HOME}/horizon-plugins#" /etc/apache2/conf.d/horizon.conf
 sudo /etc/init.d/apache2 restart
 
 # All shall work at this point...
