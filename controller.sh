@@ -166,7 +166,8 @@ keystone endpoint-create --region RegionOne --service_id $EC2_SERVICE_ID --publi
 
 # Cinder Block Storage Service
 CINDER_SERVICE_ID=$(keystone service-list | awk '/\ volume\ / {print $2}')
-CINDER_ENDPOINT=$(echo $OSCONTROLLER | sed 's/\.[0-9]*$/.211/') #Change last octet of OpenStack Controller IP to the Cinder IP.  If you changed the Cinder IP's last octet, then change the .211 in this sed command
+# FIXME(DZ): shall not hardcode IP here!
+CINDER_ENDPOINT=$(echo $OSCONTROLLER | sed 's/\.[0-9]*$/.201/') #Change last octet of OpenStack Controller IP to the Cinder IP.  If you changed the Cinder IP's last octet, then change the .211 in this sed command
 
 PUBLIC="http://$CINDER_ENDPOINT:8776/v1/%(tenant_id)s" 
 ADMIN=$PUBLIC

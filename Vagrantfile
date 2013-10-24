@@ -5,7 +5,7 @@ require 'securerandom'
 # remove the 'client' entry to below to save on host resources
 nodes = {
     'controller'  => [1, 200],
-    'cinder' => [1, 201],
+    'cinder' => [1, 201], # if ever change cinder IP, also change in controller.sh!
     'quantum' => [1, 202],
     'compute'  => [2, 211],
     'client' => [1, 100]
