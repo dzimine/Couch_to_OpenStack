@@ -7,8 +7,7 @@ nodes = {
     'controller'  => [1, 200],
     'compute'  => [2, 201],
     'cinder' => [1, 211],
-    'client' => [1, 100],
-    'proxy' => [1,101]
+    'client' => [1, 100]
     # Try without quantum...
     # , 'quantum' => [1, 202]
     # , 'graphite' => [1, 222]
